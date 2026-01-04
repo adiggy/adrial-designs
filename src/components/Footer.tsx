@@ -2,7 +2,6 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
 
 const footerLinks = {
   work: [
@@ -21,32 +20,7 @@ const footerLinks = {
 export default function Footer() {
   return (
     <footer className="bg-surface border-t border-border">
-      {/* CTA Section */}
-      <div className="max-w-6xl mx-auto px-4 py-20">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-            Ready to elevate your brand?
-          </h2>
-          <p className="text-lg text-foreground-secondary mb-8 max-w-xl mx-auto">
-            Let&apos;s discuss how strategic design can transform your business.
-          </p>
-          <Link
-            href="/contact"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-foreground text-background
-                       font-medium rounded-lg hover:bg-foreground/90 transition-colors"
-          >
-            Start a Conversation
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-          </Link>
-        </motion.div>
-
+      <div className="max-w-6xl mx-auto px-4 py-16">
         {/* Links Grid */}
         <div className="grid md:grid-cols-4 gap-12 pb-12 border-b border-border">
           {/* Logo & Description */}
