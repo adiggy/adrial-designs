@@ -1,7 +1,6 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Image from 'next/image';
 
 // Minimal custom SVG icons
 const IconStrategy = () => (
@@ -137,69 +136,48 @@ export default function Process() {
           </div>
         </motion.div>
 
-        {/* Split content with image */}
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <h3 className="text-3xl font-bold tracking-tight mb-8">
-              Why This Approach Wins
-            </h3>
-            <div className="space-y-6">
-              {[
-                {
-                  title: 'vs. Traditional Agency',
-                  description: 'Faster turnaround, lower overhead costs, and direct collaboration without the bureaucracy.',
-                },
-                {
-                  title: 'vs. AI-Only Tools',
-                  description: 'Strategic direction, brand consistency, and zero hallucinations thanks to human oversight.',
-                },
-                {
-                  title: 'vs. Freelancers',
-                  description: 'Broader capabilities, systematic process, and reliable delivery every time.',
-                },
-              ].map((item, index) => (
-                <motion.div
-                  key={item.title}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: index * 0.1 }}
-                  className="flex gap-4"
-                >
-                  <div className="w-px bg-gradient-to-b from-accent to-accent-secondary flex-shrink-0" />
-                  <div>
-                    <h4 className="font-medium mb-1">{item.title}</h4>
-                    <p className="text-foreground-secondary text-[15px]">
-                      {item.description}
-                    </p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="relative"
-          >
-            <div className="aspect-[4/3] rounded-xl overflow-hidden border border-border">
-              <Image
-                src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&q=80"
-                alt="Creative process"
-                fill
-                className="object-cover"
-              />
-            </div>
-          </motion.div>
-        </div>
+        {/* Why This Approach Wins */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="max-w-3xl mx-auto"
+        >
+          <h3 className="text-3xl font-bold tracking-tight mb-8 text-center">
+            Why This Approach Wins
+          </h3>
+          <div className="grid md:grid-cols-3 gap-px bg-border rounded-xl overflow-hidden">
+            {[
+              {
+                title: 'vs. Traditional Agency',
+                description: 'Faster turnaround, lower overhead costs, and direct collaboration without the bureaucracy.',
+              },
+              {
+                title: 'vs. AI-Only Tools',
+                description: 'Strategic direction, brand consistency, and zero hallucinations thanks to human oversight.',
+              },
+              {
+                title: 'vs. Freelancers',
+                description: 'Broader capabilities, systematic process, and reliable delivery every time.',
+              },
+            ].map((item, index) => (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+                className="p-6 bg-background"
+              >
+                <h4 className="font-semibold mb-2">{item.title}</h4>
+                <p className="text-foreground-secondary text-[15px]">
+                  {item.description}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
   );
