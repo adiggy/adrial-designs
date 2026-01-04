@@ -1,15 +1,8 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import Link from 'next/link';
-
-const trustedClients = [
-  'UNC Gillings School',
-  'Premier International',
-  'DaVinci Education',
-  'Colorado State University',
-  'Takeout Central',
-];
 
 export default function Hero() {
   return (
@@ -92,29 +85,20 @@ export default function Hero() {
             </Link>
           </motion.div>
 
-          {/* Trusted By */}
+          {/* Client Logos */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7, duration: 0.8 }}
-            className="pt-8 border-t border-border"
+            className="pt-8"
           >
-            <p className="text-xs text-foreground-muted uppercase tracking-widest mb-4">
-              Trusted by
-            </p>
-            <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
-              {trustedClients.map((client, index) => (
-                <motion.span
-                  key={client}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.8 + index * 0.1 }}
-                  className="text-sm text-foreground-secondary"
-                >
-                  {client}
-                </motion.span>
-              ))}
-            </div>
+            <Image
+              src="/client-logos.jpg"
+              alt="Trusted by UNC Gillings, Premier International, DaVinci Education, and more"
+              width={813}
+              height={80}
+              className="mx-auto opacity-70 hover:opacity-100 transition-opacity"
+            />
           </motion.div>
 
           {/* Testimonial */}
@@ -122,17 +106,28 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.0, duration: 0.8 }}
-            className="mt-12 max-w-2xl mx-auto"
+            className="mt-16 max-w-2xl mx-auto"
           >
-            <blockquote className="relative">
-              <p className="text-lg text-foreground-secondary italic leading-relaxed">
-                &ldquo;Adrial has an uncanny ability to listen to a description of our needs,
-                understand immediately what we&apos;re trying to accomplish,
-                and exceed our expectations every single time.&rdquo;
+            <blockquote className="relative text-center">
+              <p className="text-xl md:text-2xl text-foreground-secondary leading-relaxed mb-6">
+                &ldquo;Adrial is my go-to designer for <strong className="text-foreground">anything</strong> my
+                business needs ... which is why I have used him for three different companies
+                over the last 15 years.&rdquo;
               </p>
-              <footer className="mt-4">
-                <p className="text-sm font-medium text-foreground">Craig Wood</p>
-                <p className="text-sm text-foreground-muted">Communications Director, UNC Gillings School of Global Public Health</p>
+              <footer className="flex items-center justify-center gap-4">
+                <div className="w-14 h-14 rounded-full overflow-hidden border-2 border-border">
+                  <Image
+                    src="/craig.jpg"
+                    alt="Craig Wood"
+                    width={56}
+                    height={56}
+                    className="object-cover"
+                  />
+                </div>
+                <div className="text-left">
+                  <p className="text-sm font-semibold text-foreground uppercase tracking-wide">Craig Wood</p>
+                  <p className="text-sm text-foreground-muted">CEO, Premier International</p>
+                </div>
               </footer>
             </blockquote>
           </motion.div>
