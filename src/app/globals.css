@@ -136,10 +136,24 @@ body {
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+  background: linear-gradient(135deg, var(--accent), var(--accent-secondary), var(--accent));
+  background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+.animate-gradient {
+  animation: gradient-shift 3s ease-in-out infinite;
+}
+
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% center;
+  }
+  50% {
+    background-position: 100% center;
+  }
 }
 
 .gradient-border {

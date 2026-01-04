@@ -39,10 +39,24 @@ export default function Hero() {
 
           {/* Main Headline */}
           <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-bold tracking-[-0.02em] leading-[0.95] mb-8">
-            <span className="block text-foreground">Digital Products,</span>
-            <span className="block gradient-text mt-1">
-              Orchestrated by Intelligence.
-            </span>
+            <motion.span
+              className="block text-foreground"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+            >
+              Digital products,
+            </motion.span>
+            <motion.span
+              className="block mt-1"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              <span className="gradient-text animate-gradient bg-[length:200%_auto]">
+                orchestrated by intelligence.
+              </span>
+            </motion.span>
           </h1>
 
           {/* Subheadline */}
