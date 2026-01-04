@@ -1,14 +1,14 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Image from 'next/image';
 import Link from 'next/link';
 
-const featuredClients = [
-  { name: 'UNC Chapel Hill', image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=200&q=80' },
-  { name: 'Premier International', image: 'https://images.unsplash.com/photo-1634942537034-2531766767d1?w=200&q=80' },
-  { name: 'DaVinci Education', image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=200&q=80' },
-  { name: 'Sunset Grove', image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=200&q=80' },
+const trustedClients = [
+  'UNC Gillings School',
+  'Premier International',
+  'DaVinci Education',
+  'Colorado State University',
+  'Takeout Central',
 ];
 
 export default function Hero() {
@@ -92,54 +92,49 @@ export default function Hero() {
             </Link>
           </motion.div>
 
-          {/* Featured Work Strip - subtle preview */}
+          {/* Trusted By */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7, duration: 0.8 }}
             className="pt-8 border-t border-border"
           >
-            <p className="text-xs text-foreground-muted uppercase tracking-widest mb-6">
-              Recent Projects
+            <p className="text-xs text-foreground-muted uppercase tracking-widest mb-4">
+              Trusted by
             </p>
-            <div className="flex items-center justify-center gap-1">
-              {featuredClients.map((client, index) => (
-                <motion.div
-                  key={client.name}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
+            <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
+              {trustedClients.map((client, index) => (
+                <motion.span
+                  key={client}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
                   transition={{ delay: 0.8 + index * 0.1 }}
-                  className="group relative"
+                  className="text-sm text-foreground-secondary"
                 >
-                  <Link href="#work">
-                    <div className="w-20 h-14 md:w-28 md:h-20 rounded-lg overflow-hidden border border-border
-                                    bg-background-secondary relative
-                                    hover:border-border-hover hover:shadow-lg transition-all">
-                      <Image
-                        src={client.image}
-                        alt={client.name}
-                        fill
-                        className="object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
-                      />
-                    </div>
-                  </Link>
-                </motion.div>
+                  {client}
+                </motion.span>
               ))}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 1.2 }}
-              >
-                <Link
-                  href="/work"
-                  className="w-20 h-14 md:w-28 md:h-20 rounded-lg border border-dashed border-border
-                             flex items-center justify-center text-foreground-muted
-                             hover:border-foreground-muted hover:text-foreground transition-colors"
-                >
-                  <span className="text-xs md:text-sm">View All</span>
-                </Link>
-              </motion.div>
             </div>
+          </motion.div>
+
+          {/* Testimonial */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.0, duration: 0.8 }}
+            className="mt-12 max-w-2xl mx-auto"
+          >
+            <blockquote className="relative">
+              <p className="text-lg text-foreground-secondary italic leading-relaxed">
+                &ldquo;Adrial has an uncanny ability to listen to a description of our needs,
+                understand immediately what we&apos;re trying to accomplish,
+                and exceed our expectations every single time.&rdquo;
+              </p>
+              <footer className="mt-4">
+                <p className="text-sm font-medium text-foreground">Craig Wood</p>
+                <p className="text-sm text-foreground-muted">Communications Director, UNC Gillings School of Global Public Health</p>
+              </footer>
+            </blockquote>
           </motion.div>
         </motion.div>
       </div>
